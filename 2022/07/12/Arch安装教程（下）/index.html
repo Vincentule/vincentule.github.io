@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Vincentule">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="魔法学园 访问互联网权认为所有人必须能够访问互联网，以行使和享受其言论自由、通信自由、见解自由以及其他基本人权。任何国家及地区不合理地限制个人对互联网的访问都是对基本人权的践踏。  为了你的人身安全，不要在任何装有具有间谍性质的专有软件的设备上使用科学上网客户端。这些设备可以是手机，PC  等。在手机上,威权政府的监管机构可以轻易得到你所安装的应用列表，并可以通过各种手段关联并查询到你所做的事和发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux安装教程（下）">
+<meta property="og:url" content="http://example.com/2022/07/12/Arch%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%8B%EF%BC%89/index.html">
+<meta property="og:site_name" content="Vincentule&#39;s Blog">
+<meta property="og:description" content="魔法学园 访问互联网权认为所有人必须能够访问互联网，以行使和享受其言论自由、通信自由、见解自由以及其他基本人权。任何国家及地区不合理地限制个人对互联网的访问都是对基本人权的践踏。  为了你的人身安全，不要在任何装有具有间谍性质的专有软件的设备上使用科学上网客户端。这些设备可以是手机，PC  等。在手机上,威权政府的监管机构可以轻易得到你所安装的应用列表，并可以通过各种手段关联并查询到你所做的事和发">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-12T15:21:46.982Z">
+<meta property="article:modified_time" content="2022-05-17T12:05:29.000Z">
+<meta property="article:author" content="Vincentule">
+<meta property="article:tag" content="ArchLinux">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>ArchLinux安装教程（下） - Vincentule&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Vincentule&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ArchLinux安装教程（下）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Vincentule
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-12 23:21" pubdate>
+          2022年7月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">ArchLinux安装教程（下）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="魔法学园"><a href="#魔法学园" class="headerlink" title="魔法学园"></a>魔法学园</h2><blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%A8%AA%E5%95%8F%E4%BA%92%E8%81%AF%E7%B6%B2%E6%AC%8A">访问互联网权</a>认为所有人必须能够访问互联网，以行使和享受其言论自由、通信自由、见解自由以及其他基本人权。任何国家及地区不合理地限制个人对互联网的访问都是对基本人权的践踏。</strong></p>
+</blockquote>
+<p><strong>为了你的人身安全，不要在任何装有具有间谍性质的专有软件的设备上使用科学上网客户端。</strong>这些设备可以是手机，PC  等。在手机上,威权政府的监管机构可以轻易得到你所安装的应用列表，并可以通过各种手段关联并查询到你所做的事和发表的言论，并采取进一步控制，这是有先例的。理论上，在 PC 设备上也完全存在这种可能。如果你必须要使用微信，QQ 等具有间谍性质的专有软件，请在完全隔离的物理设备中使用。</p>
+<p>本节描述如何在 linux 下进行科学上网。本节以及后续的全局代理章节都是<strong>必读章节</strong>。如果没有配置好科学上网，那么你在日常使用中会遇到各种问题，不论是被封锁的资源或代码，还是查阅相关问题资料，你都会有可能无法下载和浏览。所有人<strong>必须</strong>配置好科学上网再继续。</p>
+<h2 id="1-节点的准备"><a href="#1-节点的准备" class="headerlink" title="1.节点的准备"></a>1.节点的准备</h2><p>简单来讲节点是形如如下的神秘链接，不论你以何种方式获得的这些连接，如果你已经拥有，可以直接阅读下面一小节。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">ss://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<br>vmess://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<br></code></pre></td></tr></table></figure>
+
+<p>如果你没有这些连接，可以自行部署或者购买机场的订阅服务。</p>
+<p>如果自行部署，你则需要自行购买处于自由互联网的服务器并进行节点搭建，这不在本文讨论范围内，仅提供三篇 GFW Report 的高质量文章作为参考。但是这些文章已被 GFW 屏蔽。我们之后会提供一些办法解决这个问题。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gfw.report/blog/ss_tutorial/zh/">如何部署一台抗封锁的 Shadowsocks-libev 服务器</a></li>
+<li><a target="_blank" rel="noopener" href="https://gfw.report/blog/ss_advise/zh/">防御 GFW 主动探测的实用指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://gfw.report/talks/imc20/zh/">Shadowsocks 是如何被检测和封锁的</a></li>
+</ul>
+<p>对于服务器的购买，我们提供一个网址以供参考: <a target="_blank" rel="noopener" href="https://bitcoin-vps.com/">https://bitcoin-vps.com/</a> 。bitcoin-vps  提供了非常详尽、且及时更新的服务器供应商列表，这些服务器供应商均在不同程度上支持使用加密货币进行支付，如比特币、以太坊等等。使用加密货币支付的好处在于，在正确操作的基础上，你可以完全保障自己的隐私安全。使用支付宝等实名支付手段购买类似的服务是不安全的，我们希望读者们可以认识到加密货币在各方面的价值，并认识到加密货币可以作为你的隐私保护者的存在。</p>
+<hr>
+<p>如果购买机场的订阅服务，可以参考它们的订阅流程以获取节点。在我们列出一些较为可信的机场服务以供选择，但是<strong>我们不提供任何担保</strong>。需要提醒的是，机场服务属于灰色产业，随时有停止服务的可能，购买建议以月付进行购买以避免过大损失。关于机场审计规则，我们的观点是”我可以不看，但是你不可以封禁”。对于机场审计程度，读者可根据自身实际情况自行评估。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ss.cn88.net/#/register?code=wH0Pr5l8">白月光</a> 新运营的机场，优点在于速度较为优秀，对流媒体解锁支持较为全面,机场主的售后服务迅速。对于其审计规则，可在注册账户后进入后台面板自行查看。据我们测试，其并没有严格按照审计规则进行审计。</li>
+<li><a target="_blank" rel="noopener" href="https://glados.rocks/">GLaDOS</a> 邮箱注册后使用激活码<code>9FMKX-GYLMK-ZYIZW-5U3T0</code>激活账户并获取免费时长。GLaDOS 的优势在于可以进行签到来免费使用，而且运营时间较长，较为可信。除此之外，GLaDOS 还是为数不多的拥有 Trojan  节点的机场。缺点在于速度并不算优秀。对于其审计规则，可在注册账户后进入后台面板自行查看。据我们测试，其并没有严格按照审计规则进行审计。</li>
+</ul>
+<hr>
+<p>如果你不想花任何费用，可安装<a target="_blank" rel="noopener" href="https://psiphon3.com/zh/index.html">赛风</a>这类软件。赛风是自由软件。</p>
+<p>如果你使用赛风，可以非常方便的发送空邮件到<a href="mailto:get@psiphon3.com">get@psiphon3.com</a>以获取赛风下载链接。赛风应用目前只支持 Windows\Android\IOS\MacOS 平台。当你在这些平台上能够访问自由互联网时，可以去各个渠道搜索可用的节点和代理资源，如<a target="_blank" rel="noopener" href="https://t.me/wtovpn">这个</a>或者<a target="_blank" rel="noopener" href="https://t.me/TG_Mtproxy_1">这个</a>。注意，使用公共节点需要自行承担可能的风险。</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>V2rayA 是款非常优秀的在 Linux 上可用的科学上网通用客户端。V2rayA  是一款浏览器客户端，它可以在服务器等 headless 环境中通过远程在浏览器端访问。</p>
+<h3 id="v2ray"><a href="#v2ray" class="headerlink" title="v2ray"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/fxckGFW?id=v2ray">v2ray</a></h3><p>v2ray 是使用 Qv2ray 以及 V2rayA 的前提。需要先进行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S v2ray<br></code></pre></td></tr></table></figure>
+
+<h3 id="V2rayA"><a href="#V2rayA" class="headerlink" title="V2rayA"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/fxckGFW?id=v2raya">V2rayA</a></h3><p>V2rayA 是一个浏览器客户端，使用非常方便。由于作者提供了在墙内的下载地址，可以直接在 AUR 进行安装。安装后需启动服务。V2rayA 更新频繁，开发活跃，并且其安装和使用流程都对新手更加友好。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S v2raya-bin<br>sudo systemctl <span class="hljs-built_in">enable</span> --now v2raya<br></code></pre></td></tr></table></figure>
+
+<p>随后在菜单中搜索 v2raya，点击即可打开浏览器页面。登陆后在其中加入订阅即可使用。更多使用方法请看<a target="_blank" rel="noopener" href="https://v2raya.org/">官方文档</a>与<a target="_blank" rel="noopener" href="https://github.com/v2rayA/v2rayA">项目地址</a></p>
+<h2 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h2><p>现在是 2022 年，显卡驱动的安装在 Arch Linux 上已经变得非常容易。本文区分核芯显卡和独立显卡两大类描述显卡驱动的安装。<strong>注意，确保你已经按照本教程之前的章节安装配置好科学上网、安装好必要的包后再向下进行，不要多个教程混着看，你可能漏掉了本教程前置步骤中的某些操作，从而造成问题。</strong></p>
+<blockquote>
+<p>所有 AMD 显卡建议使用开源驱动。英伟达显卡建议使用闭源驱动，因为逆向工程的开源驱动性能过于低下，本文也只描述英伟达闭源驱动安装。如果你支持自由软件运动，请尽可能使用具有官方支持开源驱动的英特尔和 AMD 显卡。</p>
+</blockquote>
+<h2 id="核芯显卡"><a href="#核芯显卡" class="headerlink" title="核芯显卡"></a>核芯显卡</h2><h3 id="英特尔核芯显卡"><a href="#英特尔核芯显卡" class="headerlink" title="英特尔核芯显卡"></a>英特尔核芯显卡</h3><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Intel_graphics">官网文档</a></p>
+<p>英特尔核芯显卡安装如下几个包即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>xf86-video-intel</code>arch wiki 里写的很多发行版不建议安装它，而应使用 xorg 的 modesetting 驱动(也就是什么都不用装的意思)。经过我们测试目前确实是默认 modesetting 驱动较为稳定。</p>
+</blockquote>
+<p>注意，只有 Intel HD 4000 及以上的核显才支持 vulkan。</p>
+<h3 id="AMD-核芯显卡"><a href="#AMD-核芯显卡" class="headerlink" title="AMD 核芯显卡"></a>AMD 核芯显卡</h3><p>对于具有核芯显卡的 AMD 处理器，需要先确定核显架构(Architecture)是什么，再决定安装什么驱动。推荐在 <a target="_blank" rel="noopener" href="https://www.techpowerup.com/">techpowerup 网站</a>进行查询，信息非常全面。在确定了显卡架构后，再根据架构对照<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Xorg#AMD">这个文档</a>决定安装什么驱动。<strong>对于 GCN2.0 及以下架构的老显卡，直接安装开源 ATI 驱动即可，原本闭源的老旧的 Catalyst 驱动在 2021  年已被废弃。GCN2.0 及以下架构的老显卡也不要使用开源的 AMDGPU  驱动，因为其仅处于实验性质，需要各种自定义内核编译选项与配置，非常麻烦，得不偿失。</strong>对于新型号，即 GCN3 架构及更新型的核芯显卡，直接安装开源驱动 AMDGPU 即可，也就是以下这几个包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>比如你的笔记本 cpu 是目前常见的 AMD R7 4800U，那么它的核显为 Vega 8。通过查询，可知其为 GCN 5.0 架构，那么对照 arch 官方文档，你可选择安装 AMDGPU 开源驱动。</li>
+<li>再比如你的台式机 cpu 是目前常见的 锐龙 5 3400G，那么它的核显为 Vega 11。通过查询，可知其为 GCN 5.0 架构，那么对照 arch 官方文档，你可选择安装 AMDGPU 开源驱动。</li>
+<li>再老一些的 apu A10-9700 处理器 ，它的核显为 Radeon R7。通过查询，可知其为 GCN 2.0 架构，那么对照 arch 官方文档，你选择安装 ATI 开源驱动。</li>
+</ul>
+<h2 id="独立显卡"><a href="#独立显卡" class="headerlink" title="独立显卡"></a>独立显卡</h2><p>这部分会分为仅有独立显卡(无核显)与同时拥有独立显卡和核芯显卡两种情况进行讲解。</p>
+<h3 id="英伟达独立显卡"><a href="#英伟达独立显卡" class="headerlink" title="英伟达独立显卡"></a>英伟达独立显卡</h3><p>较新型号的独立显卡直接安装如下几个包即可。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/NVIDIA">官方文档</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils <span class="hljs-comment">#必须安装</span><br></code></pre></td></tr></table></figure>
+
+<p>如果是 GeForce 630 以上到 GeForce 920 以下的老卡，安装 <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/nvidia-470xx-dkms/">nvidia-470xx-dkms</a>AUR及其 32 位支持包。使用 dkms 驱动同时需要 headers。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S nvidia-470xx-dkms nvidia-settings lib32-nvidia-470xx-utils linux-headers<br></code></pre></td></tr></table></figure>
+
+<p>如果是 GeForce 630 以下到 GeForce 400 系列的老卡，安装 <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/nvidia-390xx-dkms/">nvidia-390xx-dkms</a>AUR及其 32 位支持包。使用 dkms 驱动同时需要 headers。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S nvidia-390xx-dkms nvidia-settings lib32-nvidia-390xx-utils linux-headers<br></code></pre></td></tr></table></figure>
+
+<p>再老的显卡直接使用<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Nouveau">开源驱动</a>即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S mesa lib32-mesa xf86-video-nouveau<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>在同时拥有核芯显卡和英伟达独立显卡的笔记本上安装驱动是大多数人关注的事情，这里着重讲述。</strong></p>
+<blockquote>
+<p>再次提醒请按照本书前置章节配置好系统后再进行，不要多个教程混看，<strong>尤其是一些过时的教程</strong>。尤其需要注意的是确保 base-devel 包的安装以及配置好科学上网软件，以及使用 X11 模式。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/NVIDIA_Optimus">英伟达双显卡模式官方文档</a> &#x2F;&#x2F;&#x2F; <a target="_blank" rel="noopener" href="https://github.com/Askannz/optimus-manager/wiki">optimus-manager 官方文档</a></p>
+<p>若为同时拥有核芯显卡与英伟达独显的笔记本电脑，同样需要按照上述步骤先安装各个软件包。除此之外还需要安装 optimus-manager。可以在核芯显卡和独立显卡间轻松切换。optimus-manager 提供三种模式，分别为仅用独显，仅用核显，和 hybrid 动态切换模式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S optimus-manager optimus-manager-qt<br></code></pre></td></tr></table></figure>
+
+<p>安装完成后重启即可使用。optimus-manager 安装完成后会默认 enable optimus-manager 的服务，你可在重启前检查其状态，若没有 enable 则手动将其  enable。重启后在菜单栏搜索 optimus-manager 点击即可使用。可在其设置中设置开机自动启动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl <span class="hljs-built_in">enable</span> optimus-manager<br></code></pre></td></tr></table></figure>
+
+<p>此时你应该已经可以进行显卡切换了，如果有问题，请详细阅读 optimus-manager 的文档，里面有详细的描述。由于各类问题太多，本文不进行描述，optimus-manager 的文档很详尽，请自行查看。此处仅列出几项较为重要的注意事项:</p>
+<ul>
+<li>如果需要在独显和核显模式间切换，要注意你没安装各类 GPU 监控插件，它们会阻止显卡切换，导致不可预料的错误。</li>
+<li>不要使用 Nvidia Control Panel 中的<code>Save to X Configuration file</code>按钮。会导致配置冲突。</li>
+<li>在显卡之间的切换时，重新登陆后如在 splash screen 卡住或者黑屏，可以尝试在 tty1 tty2 之间进行切换。</li>
+<li>如果你在安装 optimus manager 并重启后，直接黑屏卡死，不能进入系统，很有可能是遇到了常见的”ACPI ISSUE”，简单来说，这是笔记本制造商的实现问题。可以尝试在内核启动参数中加入<code>acpi_osi=! acpi_osi=&quot;Windows 2009&quot;</code> 后再尝试。[<a target="_blank" rel="noopener" href="https://github.com/Askannz/optimus-manager/wiki/FAQ,-common-issues,-troubleshooting#when-i-switch-gpus-my-system-completely-locks-up-i-cannot-even-switch-to-a-tty-with-ctrlaltfx">1]</a></li>
+</ul>
+<p>最后详细说下动态切换模式。本质上其还是使用官方的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PRIME#PRIME_render_offload">PRIME</a>对闭源驱动的方法进行切换。需要设置三个环境变量，或者用 nvidia-prime 包提供的命令 prime-run，二者本质也是一样的，都是设置三个环境变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S nvidia-prime<br>prime-run some_program <span class="hljs-comment">#使用prime-run前缀来用独显运行某些程序</span><br></code></pre></td></tr></table></figure>
+
+<p>对于 AMD 核显+N 卡独显的读者，optimus-manager 对于这套组合的支持目前已经发布，最新可用版本为 1.4。</p>
+<hr>
+<p><strong>如果你不是强烈追求能效控制以及注重电池寿命的用户，那么可以不用往下看了，如果你是，那么需要针对你的硬件以及笔记本型号尝试正确的电源管理方式。此部分的设置可能导致黑屏，并且尝试过程可能较长，也会遇到各类问题，请根据你个人的操作水平自行斟酌是否操作</strong></p>
+<p>电源控制做的事情是，在只用核显的模式下，确保正确关闭独立显卡。而在混合模式下，绝大多数情况下 Nvidia  模块实际是始终开启的，电源控制并不生效。这件事情其实很复杂，因为对于不同的显卡型号，以及笔记本型号的组合，可行的方案都是不同的。笼统来说，最广泛适用的办法是 bbswitch。但仍不建议上来就按照此方式安装使用，因为某些特定的硬件就是会出问题，也就是黑屏。这里建议按照 optimus-manager 官方的文档一步一步来，按步骤尝试，最后找到属于你自己的电脑合适的电源管理方式。<strong>此<a target="_blank" rel="noopener" href="https://github.com/Askannz/optimus-manager/wiki/A-guide--to-power-management-options">文档</a>必须详细阅读！</strong></p>
+<p>针对大多数笔记本适用的 Bbswitch,此处进行安装使用的讲解。首先安装包 bbswitch。若使用其它内核，则安装包 bbswitch-dkms。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S bbswitch <span class="hljs-comment">#安装 bbswitch 切换方式</span><br></code></pre></td></tr></table></figure>
+
+<p>接下来右键点击 optimus-manager 的托盘设置，在 Optimus 选项卡中的 switch method 选择 Bbswitch 即可。</p>
+<h3 id="AMD-独立显卡"><a href="#AMD-独立显卡" class="headerlink" title="AMD 独立显卡"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/graphic_driver?id=amd-%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1">AMD 独立显卡</a></h3><p>AMD 独立显卡的驱动安装步骤实际上 AMD 核芯显卡是相同的，都需要先确定架构，然后选定正确的驱动安装即可。真正需要关注的是如何在核芯显卡和独立显卡间进行切换。可以使用 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/PRIME#For_open_source_drivers_-_PRIME">PRIME</a> 对开源驱动的双显卡切换方式。</p>
+<p>此外，可以使用 <code>glmark2</code>，<code>DRI_PRIME=1 glmark2</code> 分别对核显和独显进行测试，选择分数更高的一个进行使用。可以在 steam 游戏的启动前缀中加入<code>DRI_PRIME=1 mangohud %command%</code>来使用独显。(关于 <a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/play/software?id=%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7">mangohud</a>)。</p>
+<p>笔记本上使用独立显卡运行 steam 游戏的另一个例子。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">DRI_PRIME=1 steam steam://rungameid/570 <span class="hljs-comment">#运行dota2</span><br>DRI_PRIME=1 steam steam://rungameid/730 <span class="hljs-comment">#运行cs go</span><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ArchLinux/">#ArchLinux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ArchLinux安装教程（下）</div>
+      <div>http://example.com/2022/07/12/Arch安装教程（下）/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Vincentule</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月12日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/12/%E5%B0%86PulseAudio%E6%9B%BF%E6%8D%A2%E4%B8%BAPipewire,Pipewire%E5%B0%9D%E9%B2%9C/" title="将PulseAudio替换为Pipewire">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">将PulseAudio替换为Pipewire</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/12/ArchLinux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="ArchLinux安装教程（上）">
+                        <span class="hidden-mobile">ArchLinux安装教程（上）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
