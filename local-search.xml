@@ -8,7 +8,7 @@
     <link href="/2022/07/12/Linux-Shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <url>/2022/07/12/Linux-Shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<p>PS命令参数：-a 显示所有进程  -u用户和其他详细信息  -x显示没有控制终端的进程</p>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>PS命令参数：-a 显示所有进程  -u用户和其他详细信息  -x显示没有控制终端的进程</p></li><li><p>ps参数：-a 显示所有进程  -u用户和其他详细信息  -x显示没有控制终端的进程</p></li><li><p>last： 显示所有系统的登陆记录</p></li><li><p>history：显示最近使用的1000条命令</p></li><li><p>more：滚动查看文本文件</p></li><li><p>wget参数： -b 后台下载  -P 下载到指定目录  -c 断点续传 -r 递归下载 -p 下载页面所有资源</p></li><li><p>tail [选项] [文件] 查看文本文件的最后n行</p><p>示例：查看后20行 <code>tail -n 20 example.txt</code>   实时查看某文件 <code>tail -f example.txt</code></p></li><li><p>touch参数： -a 修改读取时间 -m 修改修改时间 -d 同时修改两个时间</p><p>示例： <code>touch -d &quot;2022-07-13 19:17&quot; example.txt</code></p></li><li><p>dd参数： if输入的文件名称 of输出的文件名称 bs设置每个块的大小 count要复制{块}的个数</p><p>示例：从&#x2F;dev&#x2F;zero中取出560MB大小的文件保存为560_file  <code>dd if=/dev/zero of=560_file count=1 bs=560M</code></p></li><li><p>tar参数： -c创建压缩文件 -x解开压缩文件 -t查看压缩包有什么文件 -z用Gzip压缩解压 -j用bzip2压缩解压 -v显示过程 -f目标文件名 -p 保留原始权限和属性 -P使用绝对路径 -C设置解压到的目录</p><p>示例：<code>tar -czvf etc.tar.gz /etc</code></p></li><li><p>grep:</p></li></ol>]]></content>
     
     
     
